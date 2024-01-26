@@ -10,6 +10,8 @@ namespace Moment_2.Controllers
     {
         public IActionResult Index()
         {
+                ViewBag.Message = "Välkommen till filmsidan!";
+                ViewData["Greeting"] = "Här kan du spara dina favoritfilmer.";
             var movieList = new List<Movie>();
             //Hämtar cookies
             var movieListJson = Request.Cookies["MovieList"];
@@ -25,7 +27,10 @@ namespace Moment_2.Controllers
         [HttpPost]
 
 public IActionResult SaveMovie(Movie movie)
+
 {
+
+
     if (string.IsNullOrEmpty(movie.Title) || string.IsNullOrEmpty(movie.Director))
     {
         // Om något av fälten är tomt
