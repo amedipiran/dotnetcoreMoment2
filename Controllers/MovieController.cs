@@ -28,12 +28,11 @@ namespace Moment_2.Controllers
 
 //Metod för att lägga till film
 public IActionResult SaveMovie(Movie movie)
-
 {
     if (string.IsNullOrEmpty(movie.FilmTitle) || string.IsNullOrEmpty(movie.Director))
     {
-        // Om något av fälten är tomt
-        ModelState.AddModelError(string.Empty, "Fyll i alla fält.");
+        // Om något av de obligatoriska fälten är tomt
+        ModelState.AddModelError(string.Empty, "Fyll i alla obligatoriska fält.");
         
         var movieList = new List<Movie>();
         var movieListJson = Request.Cookies["MovieList"];
@@ -43,7 +42,7 @@ public IActionResult SaveMovie(Movie movie)
             movieList = JsonConvert.DeserializeObject<List<Movie>>(movieListJson);
         }
 
-        // Återvänd till vyn 
+        // Återvänd till vyn med befintlig lista och felmeddelanden
         return View("Index", movieList);
     }
 
@@ -57,8 +56,10 @@ public IActionResult SaveMovie(Movie movie)
             movieList = JsonConvert.DeserializeObject<List<Movie>>(movieListJson);
         }
 
+        // Lägg till den nya filmen i listan
         movieList.Add(movie);
 
+        // Spara listan i cookies
         CookieOptions options = new CookieOptions
         {
             Expires = DateTime.Now.AddDays(1)
@@ -68,8 +69,8 @@ public IActionResult SaveMovie(Movie movie)
         return RedirectToAction("Index");
     }
 
-    // Om valideringen misslyckas, återvänd till vyn med samma modell
-    return View("Index", new List<Movie>());
+    // Om valideringen misslyckas, återvänd till vyn med samma modell och felmeddelanden
+    return View("Index", movie);
 }
 
 [HttpPost]

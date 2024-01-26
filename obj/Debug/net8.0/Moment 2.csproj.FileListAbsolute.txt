@@ -6,6 +6,8 @@
 /Users/robertopiranamedi/Desktop/Moment 2/bin/Debug/net8.0/Moment 2.runtimeconfig.json
 /Users/robertopiranamedi/Desktop/Moment 2/bin/Debug/net8.0/Moment 2.dll
 /Users/robertopiranamedi/Desktop/Moment 2/bin/Debug/net8.0/Moment 2.pdb
+/Users/robertopiranamedi/Desktop/Moment 2/bin/Debug/net8.0/Newtonsoft.Json.dll
+/Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/Moment 2.csproj.AssemblyReference.cache
 /Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/Moment 2.GeneratedMSBuildEditorConfig.editorconfig
 /Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/Moment 2.AssemblyInfoInputs.cache
 /Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/Moment 2.AssemblyInfo.cs
@@ -13,6 +15,7 @@
 /Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/Moment 2.MvcApplicationPartsAssemblyInfo.cache
 /Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/Moment 2.RazorAssemblyInfo.cache
 /Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/Moment 2.RazorAssemblyInfo.cs
+/Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/Moment 2.sourcelink.json
 /Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/staticwebassets.build.json
 /Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/staticwebassets.development.json
 /Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/staticwebassets/msbuild.Moment 2.Microsoft.AspNetCore.StaticWebAssets.props
@@ -23,12 +26,9 @@
 /Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
 /Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/scopedcss/bundle/Moment 2.styles.css
 /Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/scopedcss/projectbundle/Moment 2.bundle.scp.css
+/Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/Moment 2.csproj.CopyComplete
 /Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/Moment 2.dll
 /Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/refint/Moment 2.dll
 /Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/Moment 2.pdb
 /Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/Moment 2.genruntimeconfig.cache
 /Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/ref/Moment 2.dll
-/Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/Moment 2.sourcelink.json
-/Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/Moment 2.csproj.AssemblyReference.cache
-/Users/robertopiranamedi/Desktop/Moment 2/bin/Debug/net8.0/Newtonsoft.Json.dll
-/Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/Moment 2.csproj.CopyComplete

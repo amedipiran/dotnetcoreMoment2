@@ -6,20 +6,41 @@
 <h1>@ViewBag.Message</h1>
 <p> @ViewData["Greeting"]</p>
 
-
-
 <h1>Filmlista</h1>
 <!--Skriver ut listan med filmer som sparats i cookies-->
-@foreach (var movie in Model)
-{
+<ul>
+    @foreach (var movie in Model)
+    {
+        <li>
+            <p>Filmens Titel: @movie.FilmTitle</p>
+            <p>Filmens Regissör: @movie.Director</p>
+            <p>Genre: @movie.Genre</p>
+            <p>Rating: @movie.Rating</p>
+            <p>Format:</p>
+            <ul>
+                @if (movie.IsDigital)
+                {
+                    <li>Digital</li>
+                }
+                @if (movie.IsDVD)
+                {
+                    <li>DVD</li>
+                }
+                @if (movie.IsBluRay)
+                {
+                    <li>Blu-ray</li>
+                }
+            </ul>
+            <a href="@Url.Action("DeleteMovie", "Movie", new { id = movie.Id })" class="btn btn-danger">Radera</a>
+        </li>
+    }
+</ul>
 
-        <p>@movie.FilmTitle (@movie.Director) <a href="@Url.Action("DeleteMovie", "Movie", new { id = movie.Id })" class="btn btn-danger">Radera</a></p>
-}
+
 @using (Html.BeginForm("ClearList", "Movie", FormMethod.Post))
 {
     <input type="submit" value="Rensa lista" class="btn btn-danger" />
 }
-
 
 <h2>Lägg till en ny film</h2>
 @using (Html.BeginForm("SaveMovie", "Movie", FormMethod.Post))
@@ -28,17 +49,55 @@
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
     <div class="form-group">
-        @Html.Label("FilmTitle", "Filmens Titel:")
+        @Html.Label("FilmTitle", "Filmens Titel:", new { @class = "control-label" })
         @Html.TextBox("FilmTitle", null, new { @class = "form-control" })
-        @Html.ValidationMessage("Title", "", new { @class = "text-danger" })
+        @Html.ValidationMessage("FilmTitle", "", new { @class = "text-danger" })
     </div>
     <div class="form-group">
-        @Html.Label("Director", "Filmens Regissör:")
+        @Html.Label("Director", "Filmens Regissör:", new { @class = "control-label" })
         @Html.TextBox("Director", null, new { @class = "form-control" })
         @Html.ValidationMessage("Director", "", new { @class = "text-danger" })
     </div>
-
-  
+    <div class="form-group">
+        @Html.Label("Genre", "Genre:", new { @class = "control-label" })
+        @Html.DropDownList("Genre", new List<SelectListItem>
+        {
+            new SelectListItem { Text = "Action", Value = "Action" },
+            new SelectListItem { Text = "Komedi", Value = "Komedi" },
+            new SelectListItem { Text = "Drama", Value = "Drama" }
+        }, "Välj genre", new { @class = "form-control" })
+        @Html.ValidationMessage("Genre", "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label class="control-label">Betyg:</label>
+        <div>
+            <label>
+                @Html.RadioButton("Rating", "1") 1
+            </label>
+            <label>
+                @Html.RadioButton("Rating", "2") 2
+            </label>
+            <label>
+                @Html.RadioButton("Rating", "3") 3
+            </label>
+        </div>
+        @Html.ValidationMessage("Rating", "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label class="control-label">Media:</label>
+        <div>
+            <label>
+                @Html.CheckBox("IsDigital") Digital
+            </label>
+            <label>
+                @Html.CheckBox("IsDVD") DVD
+            </label>
+            <label>
+                @Html.CheckBox("IsBluRay") Blu-ray
+            </label>
+        </div>
+        @Html.ValidationMessage("IsDigital", "", new { @class = "text-danger" })
+    </div>
 
     <input type="submit" value="Spara Film" class="btn btn-primary" />
 }
