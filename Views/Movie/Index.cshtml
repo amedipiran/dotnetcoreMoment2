@@ -8,39 +8,49 @@
 
 <h1>Filmlista</h1>
 <!--Skriver ut listan med filmer som sparats i cookies-->
-<ul>
-    @foreach (var movie in Model)
-    {
-        <li>
-            <p>Filmens Titel: @movie.FilmTitle</p>
-            <p>Filmens Regissör: @movie.Director</p>
-            <p>Genre: @movie.Genre</p>
-            <p>Rating: @movie.Rating</p>
-            <p>Format:</p>
-            <ul>
-                @if (movie.IsDigital)
-                {
-                    <li>Digital</li>
-                }
-                @if (movie.IsDVD)
-                {
-                    <li>DVD</li>
-                }
-                @if (movie.IsBluRay)
-                {
-                    <li>Blu-ray</li>
-                }
-            </ul>
-            <a href="@Url.Action("DeleteMovie", "Movie", new { id = movie.Id })" class="btn btn-danger">Radera</a>
-        </li>
-    }
-</ul>
+@if (Model.Count > 0)
+{
+    <ul>
+        @foreach (var movie in Model)
+        {
+            <li>
+                <p>Filmens Titel: @movie.FilmTitle</p>
+                <p>Filmens Regissör: @movie.Director</p>
+                <p>Genre: @movie.Genre</p>
+                <p>Rating: @movie.Rating</p>
+                <p>Format:</p>
+                <ul>
+                    @if (movie.IsDigital)
+                    {
+                        <li>Digital</li>
+                    }
+                    @if (movie.IsDVD)
+                    {
+                        <li>DVD</li>
+                    }
+                    @if (movie.IsBluRay)
+                    {
+                        <li>Blu-ray</li>
+                    }
+                </ul>
+                <a href="@Url.Action("DeleteMovie", "Movie", new { id = movie.Id })" class="btn btn-danger">Radera</a>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>Inga filmer att visa.</p>
+}
 
-
+<!--Visa rensa lista enbart om det finns filmer i listan-->
+@if (Model.Count > 0) {
 @using (Html.BeginForm("ClearList", "Movie", FormMethod.Post))
 {
     <input type="submit" value="Rensa lista" class="btn btn-danger" />
 }
+}
+
 
 <h2>Lägg till en ny film</h2>
 @using (Html.BeginForm("SaveMovie", "Movie", FormMethod.Post))
