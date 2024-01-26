@@ -1,7 +1,7 @@
 @{
     ViewData["Title"] = "Filmsidan";
 }
-@* Index.cshtml *@
+
 @model List<Moment_2.Models.Movie>
 <h1>@ViewBag.Message</h1>
 <p> @ViewData["Greeting"]</p>
@@ -9,7 +9,6 @@
 
 
 <h1>Filmlista</h1>
-
 <!--Skriver ut listan med filmer som sparats i cookies-->
 @foreach (var movie in Model)
 {
