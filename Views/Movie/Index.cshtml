@@ -1,0 +1,34 @@
+@* Index.cshtml *@
+<h1>Välkommen till filmsidan!</h1>
+
+@model List<Moment_2.Models.Movie>
+
+<h1>Filmlista</h1>
+
+<!--Skriver ut listan med filmer som sparats i cookies-->
+@foreach (var movie in Model)
+{
+    <p>@movie.Title (@movie.Director)</p>
+}
+
+<h2>Lägg till en ny film</h2>
+@using (Html.BeginForm("SaveMovie", "Movie", FormMethod.Post))
+{
+    //Kopplas till modellen för att validera att fälten inte är tomma.
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.Label("Title", "Filmens Titel:")
+        @Html.TextBox("Title", null, new { @class = "form-control" })
+        @Html.ValidationMessage("Title", "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Director", "Filmens Regissör:")
+        @Html.TextBox("Director", null, new { @class = "form-control" })
+        @Html.ValidationMessage("Director", "", new { @class = "text-danger" })
+    </div>
+
+  
+
+    <input type="submit" value="Spara Film" class="btn btn-primary" />
+}

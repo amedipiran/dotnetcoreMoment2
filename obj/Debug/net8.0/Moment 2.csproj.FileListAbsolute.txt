@@ -29,3 +29,6 @@
 /Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/Moment 2.genruntimeconfig.cache
 /Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/ref/Moment 2.dll
 /Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/Moment 2.sourcelink.json
+/Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/Moment 2.csproj.AssemblyReference.cache
+/Users/robertopiranamedi/Desktop/Moment 2/bin/Debug/net8.0/Newtonsoft.Json.dll
+/Users/robertopiranamedi/Desktop/Moment 2/obj/Debug/net8.0/Moment 2.csproj.CopyComplete
