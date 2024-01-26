@@ -26,11 +26,10 @@ namespace Moment_2.Controllers
 
         [HttpPost]
 
+//Metod för att lägga till film
 public IActionResult SaveMovie(Movie movie)
 
 {
-
-
     if (string.IsNullOrEmpty(movie.Title) || string.IsNullOrEmpty(movie.Director))
     {
         // Om något av fälten är tomt
@@ -44,7 +43,7 @@ public IActionResult SaveMovie(Movie movie)
             movieList = JsonConvert.DeserializeObject<List<Movie>>(movieListJson);
         }
 
-        // Återvänd till vyn med samma modell (befintlig lista) för att visa felmeddelandet
+        // Återvänd till vyn 
         return View("Index", movieList);
     }
 
@@ -73,7 +72,49 @@ public IActionResult SaveMovie(Movie movie)
     return View("Index", new List<Movie>());
 }
 
+[HttpPost]
+public IActionResult ClearList()
+{
+    // Rensa hela listan genom att ersätta den med en tom lista
+    var movieList = new List<Movie>();
+    
+    // Spara den tomma listan till cookies
+    CookieOptions options = new CookieOptions
+    {
+        Expires = DateTime.Now.AddDays(1)
+    };
+    Response.Cookies.Append("MovieList", JsonConvert.SerializeObject(movieList), options);
 
+    return RedirectToAction("Index");
+}
 
+//radera enstaka filmer från listan
+public IActionResult DeleteMovie(int id)
+{
+    var movieList = new List<Movie>();
+    var movieListJson = Request.Cookies["MovieList"];
+
+    if (!string.IsNullOrEmpty(movieListJson))
+    {
+        movieList = JsonConvert.DeserializeObject<List<Movie>>(movieListJson);
     }
+
+    // Hitta filmen med det angivna ID och ta bort den från listan
+    var movieToRemove = movieList.FirstOrDefault(m => m.Id == id);
+    if (movieToRemove != null)
+    {
+        movieList.Remove(movieToRemove);
+        
+        // Spara den uppdaterade listan till cookies
+        CookieOptions options = new CookieOptions
+        {
+            Expires = DateTime.Now.AddDays(1)
+        };
+        Response.Cookies.Append("MovieList", JsonConvert.SerializeObject(movieList), options);
+    }
+
+    return RedirectToAction("Index");
+}
+    }
+    
 }

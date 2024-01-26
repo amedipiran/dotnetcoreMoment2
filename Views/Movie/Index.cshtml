@@ -10,8 +10,14 @@
 <!--Skriver ut listan med filmer som sparats i cookies-->
 @foreach (var movie in Model)
 {
-    <p>@movie.Title (@movie.Director)</p>
+
+        <p>@movie.Title (@movie.Director) <a href="@Url.Action("DeleteMovie", "Movie", new { id = movie.Id })" class="btn btn-danger">Radera</a></p>
 }
+@using (Html.BeginForm("ClearList", "Movie", FormMethod.Post))
+{
+    <input type="submit" value="Rensa lista" class="btn btn-danger" />
+}
+
 
 <h2>Lägg till en ny film</h2>
 @using (Html.BeginForm("SaveMovie", "Movie", FormMethod.Post))
