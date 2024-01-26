@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "BHkdTYgVBeiFz1Dhw23FTyjQ/al1fmhEez931CSnnS5YCU2Z9SAVxB+KMDW4NN1CTbXdddAokoTez6kSraImTw==",
+  "success": true,
+  "projectFilePath": "/Users/robertopiranamedi/Desktop/Moment 2/Moment 2.csproj",
+  "expectedPackageFiles": [
+    "/Users/robertopiranamedi/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
