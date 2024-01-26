@@ -8,7 +8,7 @@ namespace Moment_2.Models
 
         //Validering för fälten
         [Required(ErrorMessage = "Titeln får inte vara tom")]
-        public string Title { get; set; }
+        public string FilmTitle { get; set; }
 
         [Required(ErrorMessage = "Regissören får inte vara tom")]
         public string Director { get; set; }

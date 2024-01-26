@@ -30,7 +30,7 @@ namespace Moment_2.Controllers
 public IActionResult SaveMovie(Movie movie)
 
 {
-    if (string.IsNullOrEmpty(movie.Title) || string.IsNullOrEmpty(movie.Director))
+    if (string.IsNullOrEmpty(movie.FilmTitle) || string.IsNullOrEmpty(movie.Director))
     {
         // Om något av fälten är tomt
         ModelState.AddModelError(string.Empty, "Fyll i alla fält.");

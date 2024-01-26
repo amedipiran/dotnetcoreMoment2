@@ -1,5 +1,5 @@
 @{
-    ViewData["Title"] = "Filmsida";
+    ViewData["Title"] = "Filmsidan";
 }
 @* Index.cshtml *@
 @model List<Moment_2.Models.Movie>
@@ -14,7 +14,7 @@
 @foreach (var movie in Model)
 {
 
-        <p>@movie.Title (@movie.Director) <a href="@Url.Action("DeleteMovie", "Movie", new { id = movie.Id })" class="btn btn-danger">Radera</a></p>
+        <p>@movie.FilmTitle (@movie.Director) <a href="@Url.Action("DeleteMovie", "Movie", new { id = movie.Id })" class="btn btn-danger">Radera</a></p>
 }
 @using (Html.BeginForm("ClearList", "Movie", FormMethod.Post))
 {
@@ -29,8 +29,8 @@
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
     <div class="form-group">
-        @Html.Label("Title", "Filmens Titel:")
-        @Html.TextBox("Title", null, new { @class = "form-control" })
+        @Html.Label("FilmTitle", "Filmens Titel:")
+        @Html.TextBox("FilmTitle", null, new { @class = "form-control" })
         @Html.ValidationMessage("Title", "", new { @class = "text-danger" })
     </div>
     <div class="form-group">
